@@ -22,7 +22,7 @@ spec:
       - name: php-host
         image: bonov/php-host:%IMAGE-PLACEHOLDER%
         ports:
-        - containerPort: 80 
+        - containerPort: 9000
 ---
 apiVersion: v1
 kind: Service

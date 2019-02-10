@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: php
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+      - name: php-host
+        image: bonov/php-host:%IMAGE-PLACEHOLDER%
+        ports:
+        - containerPort: 80 
+---
+apiVersion: v1
+kind: Service
+services:
+  php-host:
+    build: php/
+    ports:
+    - "9000:9000"
+    
+    
+   

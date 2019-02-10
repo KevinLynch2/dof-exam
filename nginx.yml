@@ -19,7 +19,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: auto-demo-container
+      - name: nginx-host
         image: bonov/nginx-host:%IMAGE-PLACEHOLDER%
         ports:
         - containerPort: 80 

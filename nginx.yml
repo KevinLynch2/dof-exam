@@ -26,10 +26,18 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-  nginx-host:
-    build: nginx/
-    ports:
-    - "80:80"
+metadata:
+  name: nginx-host
+  labels:
+    app: nginx-host
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 31000
+    protocol: TCP
+  selector:
+app: nginx-host
     
     
    

@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php
+  name: php-host
 spec:
   replicas: 3
   selector:
     matchLabels: 
-      app: php
+      app: php-host
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: php
+        app: php-host
     spec:
       containers:
       - name: php-host
@@ -26,11 +26,17 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-services:
-  php-host:
-    build: php/
-    ports:
-    - "9000:9000"
-    
+metadata:
+  name: php-host
+  labels:
+    app: php-host
+spec:
+  type: NodePort
+  ports:
+  - port: 9000
+    nodePort: 9000
+    protocol: TCP
+  selector:
+app: php-host
     
    

@@ -37,6 +37,6 @@ spec:
     nodePort: 9000
     protocol: TCP
   selector:
-app: php-host
+    app: php-host
     
    

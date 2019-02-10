@@ -26,7 +26,6 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-services:
   nginx-host:
     build: nginx/
     ports:

@@ -29,7 +29,5 @@ metadata:
   name: redis-host
   labels:
     app: redis-host
-spec:
-  
   selector:
     app: redis-host

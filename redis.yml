@@ -34,7 +34,7 @@ spec:
   type: NodePort
   ports:
   - port: 9001
-    nodePort: 33000
+    nodePort: 30006
     protocol: TCP
   selector:
     app: redis-host

@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-host
 spec:
   replicas: 3
   selector:
     matchLabels: 
-      app: nginx
+      app: nginx-host
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-host
     spec:
       containers:
       - name: nginx-host

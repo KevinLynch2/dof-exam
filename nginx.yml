@@ -37,7 +37,7 @@ spec:
     nodePort: 31000
     protocol: TCP
   selector:
-app: nginx-host
+    app: nginx-host
     
     
    
